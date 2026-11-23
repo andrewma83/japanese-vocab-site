@@ -1,0 +1,130 @@
+:root {
+  color-scheme: light dark;
+  --ground: #f5f6fa;
+  --surface: #ffffff;
+  --ink: #151a30;
+  --muted: #585f75;
+  --line: #e2e5ee;
+  --accent: #2a3c9c;
+  --tint: #e6e9f8;
+  --tint-text: #2a3c9c;
+  --night: #1b2559;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ground: #0f1222;
+    --surface: #1b2035;
+    --ink: #f2f4fb;
+    --muted: #a8afc6;
+    --line: #2b3150;
+    --accent: #9daeff;
+    --tint: #27316f;
+    --tint-text: #d5daf2;
+    --night: #27316f;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+
+.wrap { width: min(100% - 40px, 960px); margin-inline: auto; }
+.narrow { width: min(100% - 40px, 720px); margin-inline: auto; }
+
+header { padding: 22px 0; }
+.bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; color: inherit; font-weight: 700; text-decoration: none; }
+.brand img { width: 34px; height: 34px; border-radius: 8px; }
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 0 72px;
+}
+h1 { margin: 0 0 16px; font-size: clamp(38px, 7vw, 60px); line-height: 1.06; letter-spacing: -0.025em; }
+.lead { margin: 0 0 22px; max-width: 34em; color: var(--muted); font-size: 20px; line-height: 1.5; }
+.status {
+  display: inline-block;
+  padding: 6px 13px;
+  border-radius: 999px;
+  background: var(--tint);
+  color: var(--tint-text);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.phone {
+  width: min(100%, 300px);
+  margin-inline: auto;
+  padding: 44px 24px 38px;
+  border-radius: 38px;
+  background: var(--night);
+  color: #fff;
+  text-align: center;
+}
+.time { font-size: 62px; font-weight: 650; line-height: 1; letter-spacing: -0.02em; }
+.date { margin-bottom: 6px; font-size: 14px; opacity: 0.82; }
+.widget {
+  margin-top: 28px;
+  padding: 12px 15px;
+  border-radius: 16px;
+  background: rgb(255 255 255 / 0.16);
+  text-align: left;
+  line-height: 1.25;
+}
+.widget strong { display: block; font-family: "Hiragino Mincho ProN", "Noto Serif JP", serif; font-size: 25px; }
+.widget span { display: block; font-size: 14px; }
+
+section { padding: 56px 0; border-top: 1px solid var(--line); }
+h2 { margin: 0 0 22px; font-size: 30px; line-height: 1.2; letter-spacing: -0.015em; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin: 0; padding: 0; list-style: none; }
+.steps b { display: block; margin-bottom: 4px; }
+.steps p { margin: 0; color: var(--muted); }
+.num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--tint);
+  color: var(--tint-text);
+  font-weight: 700;
+}
+.split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 36px; }
+.split p { margin: 0 0 14px; color: var(--muted); }
+
+.policy { padding: 32px 0 64px; }
+.policy h1 { font-size: clamp(34px, 6vw, 46px); margin-bottom: 8px; }
+.updated { margin: 0 0 28px; color: var(--muted); }
+.policy h2 { margin: 38px 0 10px; font-size: 23px; }
+.policy p, .policy li { color: var(--muted); }
+.policy strong { color: var(--ink); }
+.policy ul { padding-left: 22px; }
+.policy li { margin-bottom: 7px; }
+.summary { margin-bottom: 8px; padding: 18px 20px; border-radius: 16px; background: var(--surface); }
+.summary p { margin: 0; color: var(--ink); }
+
+footer { padding: 28px 0 40px; border-top: 1px solid var(--line); color: var(--muted); font-size: 15px; }
+.foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 20px; }
+.foot nav { display: flex; flex-wrap: wrap; gap: 18px; }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: 1fr; gap: 36px; padding: 24px 0 52px; }
+  .lead { font-size: 18px; }
+  .steps, .split { grid-template-columns: 1fr; }
+  .split { gap: 4px; }
+  section { padding: 42px 0; }
+}
